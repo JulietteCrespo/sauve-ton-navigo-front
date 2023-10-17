@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <tr>
+            users
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of (users$ | async)">
+            <td>{{user.firstName}}</td>
+        </tr>
+    </tbody>
+</table>
+
