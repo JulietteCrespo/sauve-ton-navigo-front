@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { DeclarerComponent } from './declarer/declarer.component';
 import { RechercherComponent } from './rechercher/rechercher.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RechercherComponent } from './rechercher/rechercher.component';
     NavbarComponent,
     HomeComponent,
     DeclarerComponent,
-    RechercherComponent
+    RechercherComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
