@@ -7,6 +7,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import {HttpClientModule} from "@angular/common/http";
 import { StationComponent } from './station/station.component'
+import { HomeComponent } from './home/home.component';
+import { DeclarerComponent } from './declarer/declarer.component';
+import { RechercherComponent } from './rechercher/rechercher.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +18,10 @@ import { StationComponent } from './station/station.component'
     NavbarComponent,
     UsersComponent,
     StationComponent
+    HomeComponent,
+    DeclarerComponent,
+    RechercherComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,

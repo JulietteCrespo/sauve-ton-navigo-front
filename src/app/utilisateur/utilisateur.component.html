@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<br>
+<div class="container">
+  <br>
+  <h3>Utilisateur</h3>
+  <hr>
+  <!-- Button recherche  -->
+  <div class="form-group centered">
+    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" style="width: 60px"
+            (click)="onButtonClick()"
+    >+
+    </button>
+  </div>
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+    <tr>
+      <th>Nom Prénom</th>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Crespo</p>
+            <p class="text-muted mb-0">Juliette</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">juliette.crespo@epfedu.fr</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">OUI</p>
+      </td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary btn-rounded">
+          Edit
+        </button>
+        <button type="button" class="btn btn-outline-danger btn-rounded">
+          Supr
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<br>
+</body>
+

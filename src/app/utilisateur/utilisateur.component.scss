@@ -1,0 +1,28 @@
+.container {
+  background-color: #FFFFFF; /* Couleur bleue */
+  border-radius: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  margin: 20px;
+
+}
+body {
+  background-color: #e9eaea; /* Couleur bleue */
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+
+#recherche{
+  margin-top: 20dx;
+}
+
+.grandeDiv{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  //justify-content: space-evenly;
+}
+
