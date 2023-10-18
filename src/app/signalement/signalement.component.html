@@ -1,0 +1,12 @@
+<table>
+  <thead>
+    <tr>
+      signalement
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let signalement of signalement$ | async">
+      <td>{{ signalement.nom }}</td>
+    </tr>
+  </tbody>
+</table>

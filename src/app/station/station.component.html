@@ -1,12 +1,12 @@
 <table>
   <thead>
-  <tr>
-    station
-  </tr>
+    <tr>
+      station
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let station of (station$ | async)">
-    <td>{{station.nom}}</td>
-  </tr>
+    <tr *ngFor="let station of station$ | async">
+      <td>{{ station.nom }}</td>
+    </tr>
   </tbody>
 </table>
