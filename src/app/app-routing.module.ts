@@ -4,13 +4,26 @@ import {HomeComponent} from "./home/home.component";
 import {DeclarerComponent} from "./declarer/declarer.component";
 import {RechercherComponent} from "./rechercher/rechercher.component";
 import {UtilisateurComponent} from "./utilisateur/utilisateur.component";
-
+import { UsersComponent } from './users/users.component';
+import { UsersResolver } from './users/users.resolver';
+import {StationComponent} from "./station/station.component";
 
 const routes: Routes = [{ path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "declarer", component: DeclarerComponent },
   { path: "rechercher", component: RechercherComponent },
   { path: "utilisateur", component: UtilisateurComponent }
+    {
+    path: "users",
+    component: UsersComponent,
+    resolve: {
+      users: UsersResolver,
+    },
+  },
+  {
+    path: "station",
+    component: StationComponent
+  }
 ];
 
 @NgModule({
@@ -18,3 +31,4 @@ const routes: Routes = [{ path: "", component: HomeComponent },
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
