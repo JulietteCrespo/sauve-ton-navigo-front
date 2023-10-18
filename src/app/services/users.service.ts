@@ -8,11 +8,21 @@ import {Users} from "../models/users.model"
 })
 
 export class UsersService{
-    constructor(private http: HttpClient){    
+    constructor(private http: HttpClient){
     }
     private usersUrl = "http://localhost:8080/users"
 
     findAll(): Observable<Users[]>{
         return this.http.get<Users[]>(`${this.usersUrl}/getAll`)
     }
+
+  async delete(id: number){
+    try {
+      await this.http.delete(`${this.usersUrl}/${id}`).toPromise();
+      console.log('Suppression réussie');
+    } catch (error) {
+      console.error('Erreur lors de la suppression', error);
+      throw error;
+    }
+  }
 }

@@ -17,7 +17,7 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     AppComponent,
     NavbarComponent,
     UsersComponent,
-    StationComponent
+    StationComponent,
     HomeComponent,
     DeclarerComponent,
     RechercherComponent,
