@@ -14,19 +14,19 @@
       <label>Ligne</label>
       <br>
       <div class="btn-group centered">
-        <input type="radio" class="btn-check" name="lignes" id="ligne1" autocomplete="off" checked/>
+        <input type="radio" class="btn-check" name="lignes" id="ligne1" autocomplete="off" checked (change)="onButtonFiendStationClick(1)" />
         <label class="btn btn-secondary" for="ligne1">1</label>
 
-        <input type="radio" class="btn-check" name="lignes" id="ligne2" autocomplete="off"/>
+        <input type="radio" class="btn-check" name="lignes" id="ligne2" autocomplete="off" (change)="onButtonFiendStationClick(2)"/>
         <label class="btn btn-secondary" for="ligne2">2</label>
 
-        <input type="radio" class="btn-check" name="lignes" id="ligne3" autocomplete="off"/>
+        <input type="radio" class="btn-check" name="lignes" id="ligne3" autocomplete="off" (change)="onButtonFiendStationClick(3)" />
         <label class="btn btn-secondary" for="ligne3">3</label>
 
-        <input type="radio" class="btn-check" name="lignes" id="ligne4" autocomplete="off"/>
+        <input type="radio" class="btn-check" name="lignes" id="ligne4" autocomplete="off" (change)="onButtonFiendStationClick(4)"/>
         <label class="btn btn-secondary" for="ligne4">4</label>
 
-        <input type="radio" class="btn-check" name="lignes" id="ligne5" autocomplete="off"/>
+        <input type="radio" class="btn-check" name="lignes" id="ligne5" autocomplete="off" (change)="onButtonFiendStationClick(5)"/>
         <label class="btn btn-secondary" for="ligne5">5</label>
       </div>
       <br>
@@ -34,22 +34,20 @@
       <!-- Station input -->
     <label for="station">Station</label>
       <div class="form-group col-md-4 centered">
-
-        <select id="station" class="form-control">
-          <option selected>...</option>
-          <option>...</option>
+        <select id="station" class="form-control" [(ngModel)]="selectedStationName"  [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let station of station$ | async" [value]="station.nom">{{ station.nom }}</option>
         </select>
       </div>
     <label>Date</label>
     <div class="form-group centered">
-      <input type="date" id="date" class="form-control" style="width: 200px"/>
+      <input type="date" id="date" [(ngModel)]="currentDate" [ngModelOptions]="{standalone: true}" class="form-control" style="width: 200px"/>
     </div>
     <br>
   </form>
   <br>
   <!-- Button recherche  -->
   <div class="form-group centered">
-    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" style="width: 80px">OK
+    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" (click)="onButtonFiendAllStationAndDay()" style="width: 80px">OK
     </button>
   </div>
   <br>
@@ -64,7 +62,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr *ngFor="let signalement of (signalement$ | async)">
       <td>
         <div class="d-flex align-items-center">
           <img
@@ -73,27 +71,28 @@
             style="width: 45px; height: 45px"
             class="rounded-circle"
           />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">Chatelet</p>
-            <p class="text-muted mb-0">Sortie 1</p>
+          <p class="fw-bold mb-1">{{signalement.station.numero_ligne}}</p>
+          <div class="ms-3" >
+            <p class="fw-bold mb-1">{{signalement.station.nom}}</p>
+            <p class="text-muted mb-0">{{signalement.position_controlleurs}}</p>
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">2 controleurs</p>
+        <p class="fw-normal mb-1">{{signalement.nbr_controlleur}} controleurs</p>
       </td>
       <td>
-        <p class="fw-normal mb-1">Pas cool</p>
+        <p class="fw-normal mb-1">{{signalement.humeur}}</p>
       </td>
       <td><div class="ms-3">
-        <p class="fw-bold mb-1">20/01/2023</p>
-        <p class="text-muted mb-0">10:10</p>
+        <p class="fw-bold mb-1">{{signalement.date}}</p>
+        <p class="text-muted mb-0">{{signalement.heure}}</p>
       </div></td>
       <td>
         <button type="button" class="btn btn-outline-secondary btn-rounded">
           Edit
         </button>
-        <button type="button" class="btn btn-outline-danger btn-rounded ">
+        <button type="button" class="btn btn-outline-danger btn-rounded " (click)="onButtonDeleteClick(signalement.id ? toNumber(signalement.id) : 0)">
           Supr
         </button>
       </td>
@@ -102,3 +101,5 @@
 </div>
 <br>
 </body>
+
+

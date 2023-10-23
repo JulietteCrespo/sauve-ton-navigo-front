@@ -9,9 +9,24 @@ import { Signalement } from '../models/signalement.model';
 })
 export class SignalementService {
   constructor(private http: HttpClient) {}
-  private usersUrl = 'http://localhost:8080/users';
+  private signalementUrl = 'http://localhost:8080/signalement';
 
   findAll(): Observable<Signalement[]> {
-    return this.http.get<Signalement[]>(`${this.usersUrl}/getAll`);
+    return this.http.get<Signalement[]>(`${this.signalementUrl}/getAll`);
+  }
+
+  getAllStationAndDay(id: number,jour: String ): Observable<Signalement[]> {
+    console.log(`${this.signalementUrl}/getAllStationAndDay?id=${id}&jour=${jour}`);
+    return this.http.get<Signalement[]>(`${this.signalementUrl}/getAllStationAndDay?id=${id}&jour=${jour}`);
+  }
+
+  async delete(id: number){
+    try {
+      await this.http.delete(`${this.signalementUrl}/${id}`).toPromise();
+      console.log('Suppression réussie');
+    } catch (error) {
+      console.error('Erreur lors de la suppression', error);
+      throw error;
+    }
   }
 }

@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { DeclarerComponent } from './declarer/declarer.component';
 import { RechercherComponent } from './rechercher/rechercher.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,8 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     RechercherComponent,
     UtilisateurComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
