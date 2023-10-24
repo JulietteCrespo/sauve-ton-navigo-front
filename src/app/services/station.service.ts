@@ -15,4 +15,13 @@ export class StationService{
   findAll(): Observable<Station[]>{
     return this.http.get<Station[]>(`${this.stationUrl}/getAll`)
   }
+
+
+
+  findAllByLigne(id: number):  Observable<Station[]>{
+
+    console.log("la ", id)
+    return this.http.get<Station[]>(`${this.stationUrl}/getAllLigne/${id}`)
+  }
+
 }
