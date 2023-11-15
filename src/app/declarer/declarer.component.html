@@ -12,7 +12,7 @@
   <br>
   <h3>Déclarer un controle</h3>
   <hr>
-  <div >
+  <div>
     <!-- Form -->
     <form class="grandeDiv">
       <div class="petiteDiv">
@@ -20,19 +20,24 @@
         <label>Ligne</label>
         <br>
         <div class="btn-group">
-          <input type="radio" class="btn-check" name="lignes" id="ligne1" autocomplete="off" checked/>
+          <input type="radio" class="btn-check" name="lignes" id="ligne1" autocomplete="off"
+                 (change)="onButtonFiendStationClick(1)" checked/>
           <label class="btn btn-secondary" for="ligne1">1</label>
 
-          <input type="radio" class="btn-check" name="lignes" id="ligne2" autocomplete="off"/>
+          <input type="radio" class="btn-check" name="lignes" id="ligne2" autocomplete="off"
+                 (change)="onButtonFiendStationClick(2)"/>
           <label class="btn btn-secondary" for="ligne2">2</label>
 
-          <input type="radio" class="btn-check" name="lignes" id="ligne3" autocomplete="off"/>
+          <input type="radio" class="btn-check" name="lignes" id="ligne3" autocomplete="off"
+                 (change)="onButtonFiendStationClick(3)"/>
           <label class="btn btn-secondary" for="ligne3">3</label>
 
-          <input type="radio" class="btn-check" name="lignes" id="ligne4" autocomplete="off"/>
+          <input type="radio" class="btn-check" name="lignes" id="ligne4" autocomplete="off"
+                 (change)="onButtonFiendStationClick(4)"/>
           <label class="btn btn-secondary" for="ligne4">4</label>
 
-          <input type="radio" class="btn-check" name="lignes" id="ligne5" autocomplete="off"/>
+          <input type="radio" class="btn-check" name="lignes" id="ligne5" autocomplete="off"
+                 (change)="onButtonFiendStationClick(5)"/>
           <label class="btn btn-secondary" for="ligne5">5</label>
         </div>
         <br>
@@ -40,33 +45,34 @@
         <!-- Station input -->
         <div class="form-group col-md-4">
           <label for="station">Station</label>
-          <select id="station" class="form-control">
-            <option selected>...</option>
-            <option>...</option>
+          <select id="station" class="form-control" [(ngModel)]="selectedStationName"
+                  [ngModelOptions]="{standalone: true}"  (change)="findNbrSortie()">
+            <option *ngFor="let station of station$ | async" [value]="station.nom" >{{ station.nom }}</option>
           </select>
+
         </div>
         <br>
         <!-- Sortie input -->
         <div class="form-group col-md-4">
           <label for="sortie">Sortie</label>
-          <select id="sortie" class="form-control">
-            <option selected>...</option>
-            <option>...</option>
+          <select id="sortie" class="form-control" [(ngModel)]="NumeroSortie" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let number of numbersArray" [value]="number">{{ number }}</option>
           </select>
         </div>
         <br>
         <!-- Nb controleur input -->
         <div class="form-group">
           <label>Nombre de controleurs</label>
-          <input type="number" id="nbControleur" class="form-control" style="width: 100px"/>
+          <input type="number" id="nbControleur" class="form-control" min="1" style="width: 100px" [value]="3"/>
         </div>
         <br>
         <!-- Humeur input -->
         <div class="form-group col-md-4">
           <label for="humeur">Humeur des contrôleurs</label>
           <select id="humeur" class="form-control">
-            <option selected>...</option>
-            <option>...</option>
+            <option selected>Mechant</option>
+            <option>Gentil</option>
+            <option>Neutre</option>
           </select>
         </div>
         <br>
@@ -75,26 +81,26 @@
         <!-- Date input -->
         <div class="form-group">
           <label>Date</label>
-          <input type="date" id="date" class="form-control" style="width: 200px"/>
+          <input type="date" id="date" [(ngModel)]="currentDate" [ngModelOptions]="{standalone: true}"
+                 class="form-control" style="width: 200px"/>
         </div>
         <br>
 
-      <!-- Time input -->
+        <!-- Time input -->
 
 
+        <div class="form-group">
+          <label>Heure</label>
+          <input type="time" id="time" class="form-control" style="width: 200px" [value]="currentTime"/>
+        </div>
+        <br>
 
-      <div class="form-group">
-        <label>Heure</label>
-        <input type="time" id="time" class="form-control" style="width: 200px"/>
-      </div>
-      <br>
-
-      <!-- Commentaire input -->
-      <div class="form-group">
-        <label for="commentaire">Ajoute un commentaire</label>
-        <textarea class="form-control" id="commentaire" rows="3" ></textarea>
-      </div>
-      <br>
+        <!-- Commentaire input -->
+        <div class="form-group">
+          <label for="commentaire">Ajoute un commentaire</label>
+          <textarea class="form-control" id="commentaire" rows="3"></textarea>
+        </div>
+        <br>
 
       </div>
       <!-- Button ajoutez -->

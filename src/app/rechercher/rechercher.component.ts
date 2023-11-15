@@ -48,10 +48,6 @@ export class RechercherComponent {
       });
   }
 
-  test(){
-
-    console.log("test")
-  }
 
   onButtonFiendStationClick(id: number) {
     this.station$  = this.stationService.findAllByLigne(id);

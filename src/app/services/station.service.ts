@@ -19,9 +19,11 @@ export class StationService{
 
 
   findAllByLigne(id: number):  Observable<Station[]>{
-
-    console.log("la ", id)
     return this.http.get<Station[]>(`${this.stationUrl}/getAllLigne/${id}`)
+  }
+
+  getNbrSortie(id: number): Observable<number>{
+    return this.http.get<number>(`${this.stationUrl}/getNbrSortie/${id}`)
   }
 
 }
