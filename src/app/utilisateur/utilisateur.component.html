@@ -14,7 +14,6 @@
           class="btn btn-primary btn-block mb-4 centered"
           id="addUser"
           style="width: 60px"
-          (click)="onButtonAddClick()"
         >
           +
         </button>
@@ -25,15 +24,17 @@
           <mat-panel-title> Ajouter un nouvel utilisateur </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <form>
+        <form action="">
           <div class="form">
             <div>
               <label>Nom</label>
               <input
                 type="text"
                 id="nom"
+                name="nom"
                 class="form-control"
                 style="width: 100px"
+                [(ngModel)]="newUser.firstName"
               />
             </div>
             <div>
@@ -41,21 +42,37 @@
               <input
                 type="text"
                 id="prenom"
+                name="prenom"
                 class="form-control"
                 style="width: 100px"
+                [(ngModel)]="newUser.lastName"
+              />
+            </div>
+            <div>
+              <label>Email</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                class="form-control"
+                style="width: 100px"
+                [(ngModel)]="newUser.email"
               />
             </div>
             <div>
               <label>Droits d'accès</label>
-              <select id="droits" class="form-control">
-                <option selected>Utilisateur</option>
-                <option>Administrateur</option>
-              </select>
+              <input
+                type="checkbox"
+                id="droits"
+                name="droits"
+                [(ngModel)]="newUser.admin"
+              />
             </div>
 
             <button
               type="button"
               class="btn btn-success btn-rounded btn-sm btnAjout"
+              (click)="onAddUser()"
             >
               Ajouter
             </button>
