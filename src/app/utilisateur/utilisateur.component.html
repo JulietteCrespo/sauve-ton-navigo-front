@@ -1,56 +1,112 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-<br>
-<div class="container">
-  <br>
-  <h3>Utilisateur</h3>
-  <hr>
-  <!-- Button recherche  -->
-  <div class="form-group centered">
-    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" style="width: 60px"
-            (click)="onButtonClick()"
-    >+
-    </button>
-  </div>
-  <table class="table align-middle mb-0 bg-white">
-    <thead class="bg-light">
-    <tr>
-      <th>Nom Prénom</th>
-      <th>Email</th>
-      <th>Admin</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of (users$ | async)">
-      <td>
-        <div class="d-flex align-items-center">
-          <div class="ms-3">
-            <p class="fw-bold mb-1">{{user.firstName}}</p>
-            <p class="text-muted mb-0">{{user.lastName}}</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{user.email}}</p>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{user.admin}}</p>
-      </td>
-      <td>
-        <button type="button" class="btn btn-outline-secondary btn-rounded">
-          Edit
+  <head> </head>
+  <body>
+    <br />
+    <div class="container">
+      <br />
+      <h3>Utilisateur</h3>
+      <hr />
+      <!-- Button recherche  -->
+      <div class="form-group centered">
+        <button
+          type="submit"
+          class="btn btn-primary btn-block mb-4 centered"
+          id="addUser"
+          style="width: 60px"
+          (click)="onButtonAddClick()"
+        >
+          +
         </button>
-        <button type="button" class="btn btn-outline-danger btn-rounded" (click)="onButtonDeleteClick(user.id ? toNumber(user.id) : 0)">
-          Supr
-        </button>
-      </td>
-    </tr>
-  </table>
-</div>
-<br>
-</body>
+      </div>
 
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Ajouter un nouvel utilisateur </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form>
+          <div class="form">
+            <div>
+              <label>Nom</label>
+              <input
+                type="text"
+                id="nom"
+                class="form-control"
+                style="width: 100px"
+              />
+            </div>
+            <div>
+              <label>Prénom</label>
+              <input
+                type="text"
+                id="prenom"
+                class="form-control"
+                style="width: 100px"
+              />
+            </div>
+            <div>
+              <label>Droits d'accès</label>
+              <select id="droits" class="form-control">
+                <option selected>Utilisateur</option>
+                <option>Administrateur</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-success btn-rounded btn-sm btnAjout"
+            >
+              Ajouter
+            </button>
+          </div>
+        </form>
+      </mat-expansion-panel>
+
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Nom Prénom</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users$ | async">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{ user.firstName }}</p>
+                  <p class="text-muted mb-0">{{ user.lastName }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ user.email }}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ user.admin }}</p>
+            </td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-rounded"
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger btn-rounded"
+                (click)="onButtonDeleteClick(user.id ? toNumber(user.id) : 0)"
+              >
+                Supr
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+  </body>
+</html>
