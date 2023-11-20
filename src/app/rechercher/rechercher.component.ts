@@ -13,6 +13,7 @@ import {DatePipe} from "@angular/common";
   styleUrls: ['./rechercher.component.scss']
 })
 export class RechercherComponent {
+  lignesArray: number[] = Array.from({ length: 14 }, (_, index) => index + 1);
   station$: Observable<Station[]>;
   signalement$: Observable<Signalement[]>;
 
@@ -73,6 +74,12 @@ export class RechercherComponent {
       return Number(bigIntValue);
     }
     return 0;
+  }
+  changerPhoto(variable:number): string {
+    const numeroMaxLignes = 14;
+    const numeroLigne = Math.min(Math.max(variable, 1), numeroMaxLignes);
+    const cheminImage = `../../assets/images/ligne${numeroLigne}.svg`;
+    return cheminImage;
   }
 
 
