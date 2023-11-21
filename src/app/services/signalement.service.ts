@@ -29,4 +29,7 @@ export class SignalementService {
       throw error;
     }
   }
+  envoyerSignalement(signalementData : any) {
+    return this.http.post(`http://localhost:8080/signalement`,signalementData);
+  }
 }

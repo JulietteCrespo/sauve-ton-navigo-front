@@ -16,6 +16,8 @@ import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpInterceptor } from './config.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopUpComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +29,17 @@ import { HttpInterceptor } from './config.service';
     DeclarerComponent,
     RechercherComponent,
     UtilisateurComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-  ],
+    MatDialogModule],
   providers: [
     DatePipe,
     {

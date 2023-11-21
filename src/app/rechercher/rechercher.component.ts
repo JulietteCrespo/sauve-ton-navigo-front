@@ -47,12 +47,6 @@ export class RechercherComponent {
         console.error('Erreur lors de la suppression', error);
       });
   }
-
-  test(){
-
-    console.log("test")
-  }
-
   onButtonFiendStationClick(id: number) {
     this.station$  = this.stationService.findAllByLigne(id);
     this.id = id;
@@ -78,10 +72,4 @@ export class RechercherComponent {
     }
     return 0;
   }
-
-
-
-
-
-
 }
