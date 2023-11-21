@@ -5,7 +5,7 @@ import {Signalement} from "../models/signalement.model";
 import {SignalementService} from "../services/signalement.service";
 import {StationService} from "../services/station.service";
 import {DatePipe} from "@angular/common";
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,7 +25,7 @@ export class HomeComponent {
 
   id: number;
 
-  constructor( private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe){
+  constructor( private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe, private router: Router){
     this.signalementService = signalementService1;
     this.signalement$ = this.signalementService.findAllby5(0);
     this.id =1;
@@ -63,6 +63,9 @@ export class HomeComponent {
     return cheminImage;
   }
 
+  navigateToDetail(id: bigint | undefined): void {
+    this.router.navigate(['/detail', id]);
+  }
 
 
 }

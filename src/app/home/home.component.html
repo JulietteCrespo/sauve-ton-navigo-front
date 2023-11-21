@@ -19,7 +19,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let signalement of (signalement$ | async)">
+        <tr *ngFor="let signalement of (signalement$ | async)" (click)="navigateToDetail(signalement.id)">
           <td>
             <div class="d-flex align-items-center">
               <img
