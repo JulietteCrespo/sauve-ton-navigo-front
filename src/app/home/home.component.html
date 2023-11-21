@@ -1,1 +1,72 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<br>
+<div class="grandeDiv">
+  <div class="container" style="background-color: #FFFFFF;">
+    <div>
+      <br>
+      <h4>Contrôle en cours</h4>
+      <hr>
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+        <tr>
+          <th>Ligne</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let signalement of (signalement$ | async)">
+          <td>
+            <div class="d-flex align-items-center">
+              <img
+                [id]="'imageElement_' + signalement.station.numero_ligne"
+                [src]="changerPhoto(signalement.station.numero_ligne)"
+                alt="Description de l'image"
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+              >
+              <div class="ms-3" >
+                <p class="fw-bold mb-1">{{signalement.station.nom}}</p>
+                <p class="text-muted mb-0">{{signalement.position_controlleurs}}</p>
+              </div>
+            </div>
+          </td>
+          <td><div class="ms-3">
+            <p class="fw-bold mb-1">{{signalement.date}}</p>
+            <p class="text-muted mb-0">{{signalement.heure}}</p>
+          </div></td>
+          <td>
+            <button type="button" class="btn btn-outline-secondary btn-rounded">
+              Edit
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-rounded " (click)="onButtonDeleteClick(signalement.id ? toNumber(signalement.id) : 0)">
+              Supr
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container" style="margin: 0px">
+    <div class="container" style="background-color: #62b2ef; text-align: center">
+      <br>
+      <h4 style="text-align: center">Déclarer la présence de contrôleurs</h4>
+      <br>
+    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="declarer" (click)="pageClick()" style="width: 120px">+ Ajoutez
+    </button>
+    </div>
+    <br>
+    <img src="../../assets/images/navigo.png " alt="Description de l'image">
+  </div>
+</div>
+
+
+<br>
+</body>
+
+

@@ -6,50 +6,54 @@
 <br>
 <div class="container">
   <br>
-  <h3>Rechercher</h3>
+  <h4>Rechercher</h4>
   <hr>
-  <form class="grandeDiv">
-
+  <form >
+    <br>
+    <div class="grandeDiv centered">
       <!-- Ligne input -->
-      <label>Ligne</label>
+      <label>Ligne :</label>
       <br>
       <div class="btn-group centered">
-        <input type="radio" class="btn-check" name="lignes" id="ligne1" autocomplete="off" checked (change)="onButtonFiendStationClick(1)" />
-        <label class="btn btn-secondary" for="ligne1">1</label>
-
-        <input type="radio" class="btn-check" name="lignes" id="ligne2" autocomplete="off" (change)="onButtonFiendStationClick(2)"/>
-        <label class="btn btn-secondary" for="ligne2">2</label>
-
-        <input type="radio" class="btn-check" name="lignes" id="ligne3" autocomplete="off" (change)="onButtonFiendStationClick(3)" />
-        <label class="btn btn-secondary" for="ligne3">3</label>
-
-        <input type="radio" class="btn-check" name="lignes" id="ligne4" autocomplete="off" (change)="onButtonFiendStationClick(4)"/>
-        <label class="btn btn-secondary" for="ligne4">4</label>
-
-        <input type="radio" class="btn-check" name="lignes" id="ligne5" autocomplete="off" (change)="onButtonFiendStationClick(5)"/>
-        <label class="btn btn-secondary" for="ligne5">5</label>
+        <ng-container *ngFor="let numeroLigne of lignesArray">
+          <input
+            type="radio"
+            class="btn-check"
+            name="lignes"
+            [id]="'ligne' + numeroLigne"
+            autocomplete="off"
+            (change)="onButtonFiendStationClick(numeroLigne)"
+          />
+          <label class="btn btn-secondary" [for]="'ligne' + numeroLigne">
+            <img
+              [src]="changerPhoto(numeroLigne)"
+              [alt]="'Image ' + numeroLigne"
+              style="width: 18px; height: 18px;"
+            >
+          </label>
+        </ng-container>
       </div>
+    </div>
       <br>
-      <br>
+    <div class="grandeDiv2 centered">
       <!-- Station input -->
-    <label for="station">Station</label>
+    <label for="station">Station :</label>
       <div class="form-group col-md-4 centered">
         <select id="station" class="form-control" [(ngModel)]="selectedStationName"  [ngModelOptions]="{standalone: true}">
           <option *ngFor="let station of station$ | async" [value]="station.nom">{{ station.nom }}</option>
         </select>
       </div>
-    <label>Date</label>
+    <label>Date :</label>
     <div class="form-group centered">
       <input type="date" id="date" [(ngModel)]="currentDate" [ngModelOptions]="{standalone: true}" class="form-control" style="width: 200px"/>
     </div>
     <br>
+      <div class="form-group centered">
+        <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" (click)="onButtonFiendAllStationAndDay()" style="width: 70px;margin-top: 22px;">OK
+        </button>
+      </div>
+    </div>
   </form>
-  <br>
-  <!-- Button recherche  -->
-  <div class="form-group centered">
-    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" (click)="onButtonFiendAllStationAndDay()" style="width: 80px">OK
-    </button>
-  </div>
   <br>
   <table class="table align-middle mb-0 bg-white">
     <thead class="bg-light">
@@ -66,12 +70,12 @@
       <td>
         <div class="d-flex align-items-center">
           <img
-            src="app/rechercher/ligne1.svg"
-            alt=""
+            [id]="'imageElement_' + signalement.station.numero_ligne"
+            [src]="changerPhoto(signalement.station.numero_ligne)"
+            alt="Description de l'image"
             style="width: 45px; height: 45px"
             class="rounded-circle"
-          />
-          <p class="fw-bold mb-1">{{signalement.station.numero_ligne}}</p>
+          >
           <div class="ms-3" >
             <p class="fw-bold mb-1">{{signalement.station.nom}}</p>
             <p class="text-muted mb-0">{{signalement.position_controlleurs}}</p>

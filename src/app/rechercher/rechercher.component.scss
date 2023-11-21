@@ -11,10 +11,14 @@ body {
   background-color: #e9eaea; /* Couleur bleue */
   padding-left: 40px;
   padding-right: 40px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
 }
 .centered {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: auto;
 }
 
@@ -24,15 +28,15 @@ body {
   margin: auto;
 }
 
-#recherche{
-  margin-top: 20dx;
-}
-
 .grandeDiv{
-  width: 100%;
+  width: 80%;
   height: fit-content;
   display: flex;
   align-items: flex-start;
-  //justify-content: space-evenly;
 }
-
+.grandeDiv2{
+  width: 60%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+}
