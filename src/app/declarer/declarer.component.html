@@ -63,14 +63,14 @@
         <!-- Nb controleur input -->
         <div class="form-group">
           <label>Nombre de controleurs</label>
-          <input type="number" id="nbControleur" class="form-control" min="1" style="width: 100px" [value]="3"/>
+          <input type="number" id="nbControleur" class="form-control" min="1" style="width: 100px" [(ngModel)]="selectedNbrControlleur" [ngModelOptions]="{standalone: true}" placeholder="3"/>
         </div>
         <br>
         <!-- Humeur input -->
         <div class="form-group col-md-4">
           <label for="humeur">Humeur des contrôleurs</label>
-          <select id="humeur" class="form-control">
-            <option selected>Mechant</option>
+          <select id="humeur" class="form-control" [(ngModel)]="selectedHumeur" [ngModelOptions]="{standalone: true}" placeholder="Mechant">
+            <option>Mechant</option>
             <option>Gentil</option>
             <option>Neutre</option>
           </select>
@@ -91,22 +91,22 @@
 
         <div class="form-group">
           <label>Heure</label>
-          <input type="time" id="time" class="form-control" style="width: 200px" [value]="currentTime"/>
+          <input type="time" id="time" class="form-control" style="width: 200px" [(ngModel)]="currentTime" [ngModelOptions]="{standalone: true}"/>
         </div>
         <br>
 
         <!-- Commentaire input -->
         <div class="form-group">
           <label for="commentaire">Ajoute un commentaire</label>
-          <textarea class="form-control" id="commentaire" rows="3"></textarea>
+          <textarea class="form-control" id="commentaire" rows="3"  [(ngModel)]="selectedCom" [ngModelOptions]="{standalone: true}"></textarea>
+
         </div>
         <br>
 
       </div>
       <!-- Button ajoutez -->
-
     </form>
-    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="add" style="width: 100px">Ajouter
+    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="add" style="width: 100px" (click)="envoyerSignalement()">Ajouter
     </button>
     <!-- From -->
   </div>

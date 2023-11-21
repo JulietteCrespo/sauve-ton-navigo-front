@@ -6,7 +6,7 @@ export interface Signalement {
   date: Date;
   heure: string;
   station: Station;
-  nbr_controlleur: number;
+  nbr_controlleurs: number;
   commentaire: string;
   humeur: string;
   position_controlleurs: string;

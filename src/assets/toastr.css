@@ -1,0 +1,135 @@
+/*!
+ * Toastr version 14.2.1
+ * http://codeseven.github.io/toastr/
+ *
+ * Copyright 2012-2017 John Papa
+ * Released under the MIT license
+ * https://github.com/CodeSeven/toastr/blob/master/LICENSE
+ *
+ * Date: Fri May 12 2017 15:15:48 GMT-0700 (Pacific Daylight Time)
+ */
+.toastr {
+  position: fixed;
+  margin: 0;
+  width: 300px;
+  right: 12px;
+  top: 12px;
+  z-index: 10001;
+}
+
+/* Allow */
+.toastr:hover {
+  cursor: pointer;
+}
+
+/* Allow a semi transparent modal when a toast is hiden */
+/* I know it's a hack, but it works */
+/* Ref: https://github.com/CodeSeven/toastr/pull/386 */
+.toastr.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Alert */
+.toastr.alert {
+  background-color: #e8e8e8;
+  border: 1px solid #d6d6d6;
+  color: #333;
+  border-radius: 2px;
+}
+
+/* Success */
+.toastr.success {
+  background-color: #a0db80;
+  border: 1px solid #80c565;
+  color: #4b4a4a;
+}
+
+/* Warning */
+.toastr.warning {
+  background-color: #f6d552;
+  border: 1px solid #d2c556;
+  color: #4b4a4a;
+}
+
+/* Info */
+.toastr.info {
+  background-color: #bbe5f2;
+  border: 1px solid #9cd5dc;
+  color: #4b4a4a;
+}
+
+/* Error */
+.toastr.error {
+  background-color: #f28386;
+  border: 1px solid #d5a1a4;
+  color: #4b4a4a;
+}
+
+/* Close Button */
+.toastr-close-button {
+  position: relative;
+  top: 0;
+  right: 0;
+  padding: 6px;
+  color: #4b4a4a;
+  font-size: 16px;
+  vertical-align: top;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Replace the default snackbar */
+#toast-container > div {
+  background-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  margin: 0;
+  position: static;
+  padding: 0;
+  float: right;
+}
+
+#toast-container {
+  pointer-events: none;
+}
+
+/* Replace the default snackbar */
+#toast-container > div {
+  background-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  margin: 0;
+  position: static;
+  padding: 0;
+  float: right;
+}
+
+#toast-container {
+  pointer-events: none;
+}
+
+.toast-container.inline {
+  position: relative;
+}

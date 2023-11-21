@@ -13,6 +13,9 @@ import { RechercherComponent } from './rechercher/rechercher.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopUpComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,15 @@ import { DatePipe } from '@angular/common';
     DeclarerComponent,
     RechercherComponent,
     UtilisateurComponent,
+    PopUpComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule],
   providers: [DatePipe],
   bootstrap: [AppComponent],
 })
