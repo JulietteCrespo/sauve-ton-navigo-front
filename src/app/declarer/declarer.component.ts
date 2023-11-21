@@ -17,6 +17,7 @@ import { PopupService } from '../popup/popup.service';
 
 })
 export class DeclarerComponent {
+  lignesArray: number[] = Array.from({ length: 14 }, (_, index) => index + 1);
   station$: Observable<Station[]>;
   selectedStation: Station | undefined = undefined;
   selectedNbrControlleur: number | undefined = undefined;
@@ -108,6 +109,11 @@ export class DeclarerComponent {
         });
     }
   }
-
+  changerPhoto(variable:number): string {
+    const numeroMaxLignes = 14;
+    const numeroLigne = Math.min(Math.max(variable, 1), numeroMaxLignes);
+    const cheminImage = `../../assets/images/ligne${numeroLigne}.svg`;
+    return cheminImage;
+  }
 }
 
