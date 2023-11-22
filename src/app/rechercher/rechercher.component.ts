@@ -30,7 +30,7 @@ export class RechercherComponent {
 
   constructor(private router: Router, private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe){
     this.signalementService = signalementService1;
-    this.signalement$ = this.signalementService.findAll(0);
+    this.signalement$ = this.signalementService.findAll();
     this.id =1;
     this.station$ = this.stationService.findAllByLigne(1);
     this.station$.pipe(first()).subscribe((stations: Station[]) => {
@@ -43,7 +43,7 @@ export class RechercherComponent {
 
   onButtonDeleteClick(id: number) {
     this.signalementService.delete(id).then(() => {
-      this.signalement$ = this.signalementService.findAll(0);
+      this.signalement$ = this.signalementService.findAll();
     })
       .catch(error => {
         console.error('Erreur lors de la suppression', error);
