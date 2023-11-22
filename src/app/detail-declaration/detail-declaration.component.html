@@ -10,27 +10,38 @@
 <div class="container">
   <!-- Content here -->
   <br>
-  <h3>Déclarer un controle</h3>
+  <img
+    [id]="'imageElement_' + selectedLigne"
+    [src]="changerPhoto(selectedLigne)"
+    alt="Description de l'image"
+    style="width: 45px; height: 45px"
+    class="rounded-circle"
+  >
+  <label style="margin-left: 20px">{{selectedStationName}}</label>
   <hr>
   <div>
     <!-- Form -->
     <form class="grandeDiv">
       <div class="petiteDiv">
-        <!-- Ligne input -->
-        <label>Ligne</label>
-        <br>
-        <div class="btn-group">
-            <label class="btn btn-secondary" [for]="'ligne' + 1">
-              <img
-                [src]="changerPhoto(1)"
-                [alt]="'Image ' + 1"
-                style="width: 18px; height: 18px;"
-              >
-            </label>
-        </div>
+        <label>SORTIE {{NumeroSortie}}</label>
         <br>
         <br>
-        <!-- Station input -->
+        <label><U>Nombre de controleurs </U>: {{selectedNbrControlleur}} </label>
+        <br>
+        <br>
+        <label><U>Humeur des contrôleurs </U>: {{selectedHumeur}}</label>
+        <br>
+      </div>
+      <div class="petiteDiv">
+        <label><U>Date </U>: {{currentDate}}</label>
+        <br>
+        <br>
+        <label><U>Heure </U>: {{currentTime}}</label>
+        <br>
+        <br>
+        <label><U>Commentaire </U>: {{selectedCom}}</label>
+        <br>
+        <br>
       </div>
     </form>
   </div>

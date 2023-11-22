@@ -108,14 +108,12 @@ export class EditSignalementComponent {
       this.signalementService.updateSignalement(signalementData)
         .subscribe(response => {
           console.log('Réponse du serveur :', response);
-          this.popupService.openSuccessPopup("Signalement ajouté");
+          this.popupService.openSuccessPopup("Signalement modifié");
           this.router.navigate(['/rechercher']);
         }, error => {
           console.error('Erreur lors de la requête :', error);
         });
     }
   }
-
-
 }
 
