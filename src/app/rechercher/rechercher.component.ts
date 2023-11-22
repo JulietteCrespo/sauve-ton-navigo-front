@@ -6,6 +6,7 @@ import {StationService} from "../services/station.service";
 import {Signalement} from "../models/signalement.model";
 import {SignalementService} from "../services/signalement.service";
 import {DatePipe} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-rechercher',
@@ -27,7 +28,7 @@ export class RechercherComponent {
 
   id: number;
 
-  constructor( private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe){
+  constructor(private router: Router, private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe){
     this.signalementService = signalementService1;
     this.signalement$ = this.signalementService.findAll();
     this.id =1;
@@ -47,6 +48,10 @@ export class RechercherComponent {
       .catch(error => {
         console.error('Erreur lors de la suppression', error);
       });
+  }
+
+  onButtonEditClick(id: number) {
+    this.router.navigate(['/editSignalement', id]);
   }
 
 

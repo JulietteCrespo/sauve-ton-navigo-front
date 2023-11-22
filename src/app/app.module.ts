@@ -18,6 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpInterceptor } from './config.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopUpComponent } from './popup/popup.component';
+import { EditSignalementComponent } from './edit-signalement/edit-signalement.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PopUpComponent } from './popup/popup.component';
     DeclarerComponent,
     RechercherComponent,
     UtilisateurComponent,
-    PopUpComponent
+    PopUpComponent,
+    EditSignalementComponent
   ],
   imports: [
     BrowserModule,

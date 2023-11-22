@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
 import { Users } from '../models/users.model';
 import { Signalement } from '../models/signalement.model';
 
@@ -13,6 +13,16 @@ export class SignalementService {
 
   findAll(): Observable<Signalement[]> {
     return this.http.get<Signalement[]>(`${this.signalementUrl}/getAll`);
+  }
+
+  findById(id: number): Observable<Signalement> {
+    return this.http.get<Signalement>(`${this.signalementUrl}/${id}`)
+      .pipe(
+        catchError((error: any, caught: Observable<Signalement>) => {
+          console.error("error");
+          return throwError(error);
+        })
+      );
   }
 
   getAllStationAndDay(id: number,jour: String ): Observable<Signalement[]> {

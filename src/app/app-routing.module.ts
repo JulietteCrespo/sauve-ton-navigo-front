@@ -7,12 +7,14 @@ import {UtilisateurComponent} from "./utilisateur/utilisateur.component";
 import { UsersComponent } from './users/users.component';
 import { UsersResolver } from './users/users.resolver';
 import {StationComponent} from "./station/station.component";
+  import {EditSignalementComponent} from "./edit-signalement/edit-signalement.component";
 
 const routes: Routes = [{ path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "declarer", component: DeclarerComponent },
   { path: "rechercher", component: RechercherComponent },
   { path: "utilisateur", component: UtilisateurComponent },
+  { path: 'editSignalement/:id', component: EditSignalementComponent },
     {
     path: "users",
     component: UsersComponent,
