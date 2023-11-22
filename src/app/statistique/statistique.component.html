@@ -35,13 +35,11 @@
           <td>
             <div class="ms-3">
               <p class="fw-bold mb-1">{{station.nom}}</p>
-              <p class="text-muted mb-0"></p>
             </div>
           </td>
           <td>
             <div class="ms-3">
               <p class="fw-bold mb-1">{{station.nbr_sortie}}</p>
-              <p class="text-muted mb-0"></p>
             </div>
           </td>
         </tr>
@@ -59,38 +57,32 @@
           <thead class="bg-light">
           <tr>
             <th>Ligne</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>Nom</th>
+            <th>Nombre de sorties</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr *ngFor="let station of (stationMonth$ | async)">
             <td>
               <div class="d-flex align-items-center">
                 <img
+                  [id]="'imageElement_' + station.numero_ligne"
+                  [src]="changerPhoto(station.numero_ligne)"
                   alt="Description de l'image"
                   style="width: 45px; height: 45px"
                   class="rounded-circle"
                 >
-                <div class="ms-3">
-                  <p class="fw-bold mb-1"></p>
-                  <p class="text-muted mb-0"></p>
-                </div>
               </div>
             </td>
             <td>
               <div class="ms-3">
-                <p class="fw-bold mb-1"></p>
-                <p class="text-muted mb-0"></p>
+                <p class="fw-bold mb-1">{{station.nom}}</p>
               </div>
             </td>
             <td>
-              <button type="button" class="btn btn-outline-secondary btn-rounded">
-                Edit
-              </button>
-              <button type="button" class="btn btn-outline-danger btn-rounded ">
-                Supr
-              </button>
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{station.nbr_sortie}}</p>
+              </div>
             </td>
           </tr>
         </table>

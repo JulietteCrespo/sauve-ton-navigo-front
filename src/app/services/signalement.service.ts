@@ -46,6 +46,10 @@ export class SignalementService {
     return this.http.get<Station[]>(`${this.signalementUrl}/findStatStation/${jour}`);
   }
 
+  findStatMonth(mois : number): Observable<Station[]>{
+    return this.http.get<Station[]>(`${this.signalementUrl}/findStatStationMois/${mois}`);
+  }
+
   getAllStationAndDay(id: number,jour: String ): Observable<Signalement[]> {
     console.log(`${this.signalementUrl}/getAllStationAndDay?id=${id}&jour=${jour}`);
     return this.http.get<Signalement[]>(`${this.signalementUrl}/getAllStationAndDay?id=${id}&jour=${jour}`);
