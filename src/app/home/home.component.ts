@@ -66,6 +66,8 @@ export class HomeComponent {
   navigateToDetail(id: bigint | undefined): void {
     this.router.navigate(['/detail', id]);
   }
-
+  onButtonEditClick(id: number) {
+    this.router.navigate(['/editSignalement', id]);
+  }
 
 }

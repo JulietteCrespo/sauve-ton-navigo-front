@@ -17,6 +17,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 
 export class EditSignalementComponent {
+  lignesArray: number[] = Array.from({ length: 14 }, (_, index) => index + 1);
   signalement$: Observable<Signalement> | undefined = undefined;
   station$: Observable<Station[]>;
   selectedStation: Station | undefined = undefined;
@@ -114,6 +115,12 @@ export class EditSignalementComponent {
           console.error('Erreur lors de la requête :', error);
         });
     }
+  }
+  changerPhoto(variable:number): string {
+    const numeroMaxLignes = 14;
+    const numeroLigne = Math.min(Math.max(variable, 1), numeroMaxLignes);
+    const cheminImage = `../../assets/images/ligne${numeroLigne}.svg`;
+    return cheminImage;
   }
 }
 
