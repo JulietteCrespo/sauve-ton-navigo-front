@@ -87,9 +87,7 @@ export class RechercherComponent {
     return cheminImage;
   }
 
-
-
-
-
-
+  navigateToDetail(id: bigint | undefined): void {
+    this.router.navigate(['/detail', id]);
+  }
 }

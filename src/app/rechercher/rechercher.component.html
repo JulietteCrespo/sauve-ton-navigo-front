@@ -67,7 +67,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let signalement of (signalement$ | async)">
-      <td>
+      <td (click)="navigateToDetail(signalement.id)">
         <div class="d-flex align-items-center">
           <img
             [id]="'imageElement_' + signalement.station.numero_ligne"
@@ -82,13 +82,13 @@
           </div>
         </div>
       </td>
-      <td>
+      <td (click)="navigateToDetail(signalement.id)">
         <p class="fw-normal mb-1">{{signalement.nbr_controlleurs}} </p>
       </td>
-      <td>
+      <td (click)="navigateToDetail(signalement.id)" >
         <p class="fw-normal mb-1">{{signalement.humeur}}</p>
       </td>
-      <td><div class="ms-3">
+      <td (click)="navigateToDetail(signalement.id)" ><div class="ms-3">
         <p class="fw-bold mb-1">{{signalement.date}}</p>
         <p class="text-muted mb-0">{{signalement.heure}}</p>
       </div></td>
