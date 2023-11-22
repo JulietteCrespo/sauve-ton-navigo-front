@@ -1,1 +1,41 @@
-<p>detail-declaration works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+  </style>
+</head>
+<body>
+<br>
+<div class="container">
+  <!-- Content here -->
+  <br>
+  <h3>Déclarer un controle</h3>
+  <hr>
+  <div>
+    <!-- Form -->
+    <form class="grandeDiv">
+      <div class="petiteDiv">
+        <!-- Ligne input -->
+        <label>Ligne</label>
+        <br>
+        <div class="btn-group">
+            <label class="btn btn-secondary" [for]="'ligne' + 1">
+              <img
+                [src]="changerPhoto(1)"
+                [alt]="'Image ' + 1"
+                style="width: 18px; height: 18px;"
+              >
+            </label>
+        </div>
+        <br>
+        <br>
+        <!-- Station input -->
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+</body>
+</html>
+
