@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {catchError, Observable, throwError} from 'rxjs';
 import { Users } from '../models/users.model';
 import { Signalement } from '../models/signalement.model';
+import {Station} from "../models/station.model";
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +31,7 @@ export class SignalementService {
       );
   }
 
+
   findById(id: number): Observable<Signalement> {
     return this.http.get<Signalement>(`${this.signalementUrl}/${id}`)
       .pipe(
@@ -38,6 +40,10 @@ export class SignalementService {
           return throwError(error);
         })
       );
+  }
+
+  findStatJour(jour : String): Observable<Station[]>{
+    return this.http.get<Station[]>(`${this.signalementUrl}/findStatStation/${jour}`);
   }
 
   getAllStationAndDay(id: number,jour: String ): Observable<Signalement[]> {

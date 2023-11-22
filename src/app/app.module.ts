@@ -19,6 +19,7 @@ import { HttpInterceptor } from './config.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopUpComponent } from './popup/popup.component';
 import { EditSignalementComponent } from './edit-signalement/edit-signalement.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditSignalementComponent } from './edit-signalement/edit-signalement.co
     RechercherComponent,
     UtilisateurComponent,
     PopUpComponent,
-    EditSignalementComponent
+    EditSignalementComponent,
+    StatistiqueComponent
   ],
   imports: [
     BrowserModule,

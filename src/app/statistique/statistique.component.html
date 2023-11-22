@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<br>
+<div class="grandeDiv">
+  <div class="container" style="background-color: #FFFFFF;">
+    <div>
+      <br>
+      <h4>Station les plus contrôlé aujourd'hui :</h4>
+      <hr>
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+        <tr>
+          <th>Ligne</th>
+          <th>Nom</th>
+          <th>Nombre de sorties</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let station of (stationTouday$ | async)">
+          <td>
+            <div class="d-flex align-items-center">
+              <img
+                [id]="'imageElement_' + station.numero_ligne"
+                [src]="changerPhoto(station.numero_ligne)"
+
+                alt="Description de l'image"
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+              >
+            </div>
+          </td>
+          <td>
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{station.nom}}</p>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </td>
+          <td>
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{station.nbr_sortie}}</p>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container" style="margin: 0px">
+    <div class="container" style="background-color: #FFFFFF;">
+      <div>
+        <br>
+        <h4>Station les plus contrôlé ce mois ci :</h4>
+        <hr>
+        <table class="table align-middle mb-0 bg-white">
+          <thead class="bg-light">
+          <tr>
+            <th>Ligne</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                  alt="Description de l'image"
+                  style="width: 45px; height: 45px"
+                  class="rounded-circle"
+                >
+                <div class="ms-3">
+                  <p class="fw-bold mb-1"></p>
+                  <p class="text-muted mb-0"></p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="ms-3">
+                <p class="fw-bold mb-1"></p>
+                <p class="text-muted mb-0"></p>
+              </div>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline-secondary btn-rounded">
+                Edit
+              </button>
+              <button type="button" class="btn btn-outline-danger btn-rounded ">
+                Supr
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+
+<div class="container" style="margin: 0px">
+  <div class="container" style="background-color: #FFFFFF;">
+    <div>
+      <br>
+      <h4>Les lignes controlé sur derniers semaines :</h4>
+      <hr>
+
+    </div>
+  </div>
+  <br>
+</div>
+<br>
+</body>
+
+
