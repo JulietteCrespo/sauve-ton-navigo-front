@@ -17,6 +17,6 @@ export class SignalementComponent {
     private signalementService: SignalementService,
     private router: Router
   ) {
-    this.signalement$ = signalementService.findAll();
+    this.signalement$ = signalementService.findAll(0);
   }
 }

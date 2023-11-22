@@ -11,8 +11,14 @@ export class SignalementService {
   constructor(private http: HttpClient) {}
   private signalementUrl = 'http://localhost:8080/signalement';
 
-  findAll(): Observable<Signalement[]> {
-    return this.http.get<Signalement[]>(`${this.signalementUrl}/getAll`);
+  findAll(debut: number): Observable<Signalement[]> {
+    return this.http.get<Signalement[]>(`${this.signalementUrl}/findAllOrderByday/${debut}`)
+      .pipe(
+        catchError((error: any, caught: Observable<Signalement[]>) => {
+          console.error("error");
+          return throwError(error);
+        })
+      );
   }
 
   findById(id: number): Observable<Signalement> {

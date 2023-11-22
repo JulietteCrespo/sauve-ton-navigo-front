@@ -23,8 +23,9 @@ export class EditSignalementComponent {
   selectedNbrControlleur: number = 1;
   selectedHumeur: string = "Gentil";
   selectedPosition: string | undefined = undefined;
+  selectedLigne: number = 1;
   selectedCom: string = "";
-  selectedStationName: string = "Chatelet";
+  selectedStationName: string = "erreur";
   currentDate: string = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || '';
   currentTime: string = "00:00";
   nbrSortie: number = 1;
@@ -51,10 +52,8 @@ export class EditSignalementComponent {
           this.selectedNbrControlleur = signalement.nbr_controlleurs;
           this.selectedCom = signalement.commentaire;
           this.numbersArray = Array.from({length: this.nbrSortie}, (_, i) => i + 1);
-          if (this.selectedStation && this.selectedStation.id !== undefined) {
-            this.id = this.selectedStation.id as unknown as number;
-          }
-          this.station$ = this.stationService.findAllByLigne(this.id);
+          this.selectedLigne = signalement.station.numero_ligne as unknown as number;
+          this.station$ = this.stationService.findAllByLigne(this.selectedLigne);
           this.NumeroSortie = parseInt(signalement.position_controlleurs.charAt(signalement.position_controlleurs.length - 1), 10);
           this.currentDate = this.datePipe.transform(signalement.date, 'yyyy-MM-dd') || '';
           this.currentTime = signalement.heure as string;
