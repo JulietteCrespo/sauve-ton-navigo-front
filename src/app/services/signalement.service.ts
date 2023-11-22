@@ -42,4 +42,8 @@ export class SignalementService {
   envoyerSignalement(signalementData : any) {
     return this.http.post(`http://localhost:8080/signalement`,signalementData);
   }
+
+  updateSignalement(signalementData : any) {
+    return this.http.post(`http://localhost:8080/signalement/update/${signalementData.id}`,signalementData);
+  }
 }
