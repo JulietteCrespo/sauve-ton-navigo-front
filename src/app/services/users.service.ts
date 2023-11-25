@@ -28,4 +28,8 @@ export class UsersService {
     console.log(newUser);
     return this.http.post<any>(`${this.usersUrl}`, newUser);
   }
+
+  updateUser(user: Users, id: number) {
+    return this.http.put<any>(`${this.usersUrl}/${id}`, user);
+  }
 }

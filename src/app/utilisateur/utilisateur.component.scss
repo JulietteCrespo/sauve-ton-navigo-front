@@ -34,3 +34,9 @@ body {
 .btnAjout {
   height: 3.5vh;
 }
+
+.firstColumnTable {
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+}

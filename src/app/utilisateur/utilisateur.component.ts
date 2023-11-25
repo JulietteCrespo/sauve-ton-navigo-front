@@ -16,6 +16,16 @@ export class UtilisateurComponent {
     email: '',
     admin: false,
   };
+
+  updatedUser: Users = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    admin: false,
+  };
+
+  isEditing = false;
+
   users$: Observable<Users[]> = this._route.data.pipe(
     map((data) => data['users'])
   );
@@ -36,6 +46,14 @@ export class UtilisateurComponent {
     });
   }
 
+  onEditClick() {}
+
+  onUpdateUser(id: number, user: Users) {
+    console.log(user);
+    console.log(id);
+    //  this.usersService.updateUser(user, id);
+  }
+
   loadUsers() {
     // methode pour charger les utilisateurs depuis le service
   }
@@ -49,12 +67,5 @@ export class UtilisateurComponent {
       .catch((error) => {
         console.error('Erreur lors de la suppression', error);
       });
-  }
-
-  toNumber(bigIntValue: bigint | undefined): number {
-    if (bigIntValue) {
-      return Number(bigIntValue);
-    }
-    return 0;
   }
 }
