@@ -6,6 +6,9 @@ import {SignalementService} from "../services/signalement.service";
 import {StationService} from "../services/station.service";
 import {DatePipe} from "@angular/common";
 import { Router } from '@angular/router';
+import {Users} from "../models/users.model";
+import {UsersService} from "../services/users.service";
+import {AuthService} from "../services/auth.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,7 +28,7 @@ export class HomeComponent {
 
   id: number;
 
-  constructor( private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe, private router: Router){
+  constructor( private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe, private router: Router,public authService: AuthService){
     this.signalementService = signalementService1;
     this.signalement$ = this.signalementService.findAllby5(0);
     this.id =1;
@@ -36,6 +39,7 @@ export class HomeComponent {
     });
     const currentDateFormatted = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.currentDate = currentDateFormatted || '';
+    console.log(authService.isAdmin);
   }
 
   onButtonDeleteClick(id: number) {

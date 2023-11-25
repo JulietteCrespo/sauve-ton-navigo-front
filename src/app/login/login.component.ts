@@ -41,20 +41,27 @@ export class LoginComponent {
         this.usersService.connexion(this.emailLogin, this.mdp)
             .pipe(
                 tap(users => {
-                    //console.log('Users received:', users);
                     const user = users;
-                    if (user.email!= null) {
-
+                    if (user.email != null) {
                         this.firstName = user.firstName;
                         this.lastName = user.lastName;
                         this.admin = user.admin;
                         this.email = user.email;
-                        this.usersService.setCurrentUser(user);
-                        this.authService.login();
-                        console.log(this.usersService.getCurrentUser());
 
+                        // Définir l'utilisateur actuel dans le service d'utilisateur
+                        this.usersService.setCurrentUser(user);
+
+                        // Définir l'état d'authentification comme true dans le service d'authentification
+                        this.authService.login();
+
+                        // Si l'utilisateur est un administrateur, définir le statut administrateur comme true
+                        if (this.admin) {
+                            this.authService.login(true);
+                        }
+
+                        console.log(this.usersService.getCurrentUser());
                     } else {
-                        console.log("L'utilisateur n'existe pas" );
+                        console.log("L'utilisateur n'existe pas");
                     }
                 }),
                 catchError(error => {
@@ -64,6 +71,7 @@ export class LoginComponent {
             )
             .subscribe();
     }
+
 
 }
 

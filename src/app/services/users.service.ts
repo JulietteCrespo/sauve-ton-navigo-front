@@ -16,8 +16,12 @@ export class UsersService {
     this.currentUser = user;
   }
 
-  getCurrentUser(): any {
+  getCurrentUser(): Users | undefined {
     return this.currentUser;
+  }
+
+  getCurrentUserAdmin(): boolean | undefined {
+    return this.currentUser?.admin;
   }
 
   findAll(): Observable<Users[]> {

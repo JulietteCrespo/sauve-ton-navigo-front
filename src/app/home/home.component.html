@@ -10,12 +10,12 @@
       <br>
       <h4>Contrôle en cours</h4>
       <hr>
-      <table class="table align-middle mb-0 bg-white">
+      <table class="table align-middle mb-0 bg-white" >
         <thead class="bg-light">
         <tr>
           <th>Ligne</th>
-          <th>Date</th>
-          <th>Actions</th>
+          <th>Date </th>
+          <th *ngIf="authService.isAdmin" >Actions </th>
         </tr>
         </thead>
         <tbody>
@@ -39,8 +39,8 @@
             <p class="fw-bold mb-1">{{signalement.date}}</p>
             <p class="text-muted mb-0">{{signalement.heure}}</p>
           </div></td>
-          <td>
-            <button type="button" class="btn btn-outline-secondary btn-rounded " (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)">
+          <td *ngIf="authService.isAdmin">
+            <button type="button"  class="btn btn-outline-secondary btn-rounded " (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)" >
               Edit
             </button>
             <button type="button" class="btn btn-outline-danger btn-rounded " (click)="onButtonDeleteClick(signalement.id ? toNumber(signalement.id) : 0)">
@@ -49,9 +49,9 @@
           </td>
         </tr>
       </table>
+
     </div>
   </div>
-
   <div class="container" style="margin: 0px">
     <div class="container" style="background-color: #62b2ef; text-align: center">
       <br>
