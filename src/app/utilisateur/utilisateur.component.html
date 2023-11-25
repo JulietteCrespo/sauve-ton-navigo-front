@@ -7,21 +7,16 @@
       <br />
       <h3>Utilisateur</h3>
       <hr />
-      <!-- Button recherche  -->
-      <div class="form-group centered">
-        <button
-          type="submit"
-          class="btn btn-primary btn-block mb-4 centered"
-          id="addUser"
-          style="width: 60px"
-        >
-          +
-        </button>
-      </div>
 
-      <mat-expansion-panel>
+      <mat-expansion-panel style="margin-bottom: 20px">
         <mat-expansion-panel-header>
-          <mat-panel-title> Ajouter un nouvel utilisateur </mat-panel-title>
+          <mat-panel-title>
+            <i
+              class="fa-solid fa-plus"
+              style="color: #1760de; margin-right: 6px; font-size: 1.2em"
+            ></i>
+            Ajouter un nouvel utilisateur
+          </mat-panel-title>
         </mat-expansion-panel-header>
 
         <form action="">
@@ -83,91 +78,41 @@
       <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
           <tr>
+            <th>ID</th>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
             <th>Droits d'accès</th>
-            <th>Actions</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of users$ | async">
             <td>
-              <input
-                type="text"
-                id="id"
-                name="id"
-                class="form-control"
-                style="width: 100px"
-                [value]="user.id"
-                disabled
-              />
+              <p>{{ user.id }}</p>
             </td>
             <td>
-              <input
-                type="text"
-                id="nom"
-                name="nom"
-                class="form-control"
-                style="width: 100px"
-                [value]="user.lastName"
-                [disabled]="!isEditing"
-              />
+              <p>{{ user.lastName }}</p>
             </td>
             <td>
-              <input
-                type="text"
-                id="prenom"
-                name="prenom"
-                class="form-control"
-                style="width: 100px"
-                [value]="user.firstName"
-                [disabled]="!isEditing"
-              />
+              <p>{{ user.firstName }}</p>
             </td>
             <td>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                class="form-control"
-                style="width: 300px"
-                [value]="user.email"
-                [disabled]="!isEditing"
-              />
+              <p>{{ user.email }}</p>
             </td>
             <td>
-              <input
-                type="text"
-                id="droits"
-                name="droits"
-                class="form-control"
-                style="width: 100px"
-                [value]="user.admin"
-                [disabled]="!isEditing"
-              />
+              <p>{{ user.admin }}</p>
             </td>
             <td>
               <button
                 type="button"
-                class="btn btn-outline-secondary btn-rounded"
-                (click)="isEditing = !isEditing"
-              >
-                Edit
-              </button>
-              <button
-                type="button"
-                class="btn btn-outline-danger btn-rounded"
+                class="btn btn-outline-none"
                 (click)="onButtonDeleteClick(user.id ? user.id : 0)"
               >
-                Supr
-              </button>
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-rounded"
-                (click)="onUpdateUser(user.id ? user.id : 0, user)"
-              >
-                Update
+                <i
+                  class="fa-solid fa-trash"
+                  style="color: #ff0000; font-size: 1.3em"
+                ></i>
               </button>
             </td>
           </tr>

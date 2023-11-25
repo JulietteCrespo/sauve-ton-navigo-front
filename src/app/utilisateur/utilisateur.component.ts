@@ -46,23 +46,15 @@ export class UtilisateurComponent {
     });
   }
 
-  onEditClick() {}
-
-  onUpdateUser(id: number, user: Users) {
-    console.log(user);
-    console.log(id);
-    //  this.usersService.updateUser(user, id);
-  }
-
   loadUsers() {
-    // methode pour charger les utilisateurs depuis le service
+    this.users$ = this.usersService.findAll();
   }
 
   onButtonDeleteClick(id: number) {
     this.usersService
       .delete(id)
       .then(() => {
-        this.users$ = this.usersService.findAll();
+        this.loadUsers();
       })
       .catch((error) => {
         console.error('Erreur lors de la suppression', error);
