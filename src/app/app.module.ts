@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PopUpComponent } from './popup/popup.component';
 import { DetailDeclarationComponent } from './detail-declaration/detail-declaration.component';
 import { EditSignalementComponent } from './edit-signalement/edit-signalement.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditSignalementComponent } from './edit-signalement/edit-signalement.co
     PopUpComponent,
     EditSignalementComponent,
     PopUpComponent,
-    DetailDeclarationComponent
+    DetailDeclarationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
