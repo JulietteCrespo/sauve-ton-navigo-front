@@ -56,12 +56,16 @@
             </div>
             <div>
               <label>Droits d'accès</label>
-              <input
-                type="checkbox"
+
+              <select
                 id="droits"
                 name="droits"
-                [(ngModel)]="newUser.admin"
-              />
+                class="form-control"
+                [(ngModel)]="admin"
+              >
+                <option value="utilisateur">Utilisateur</option>
+                <option value="administrateur">Administrateur</option>
+              </select>
             </div>
 
             <button
@@ -101,7 +105,7 @@
               <p>{{ user.email }}</p>
             </td>
             <td>
-              <p>{{ user.admin }}</p>
+              <p>{{ user.admin ? "Administrateur" : "Utilisateur" }}</p>
             </td>
             <td>
               <button

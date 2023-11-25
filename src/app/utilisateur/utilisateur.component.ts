@@ -17,12 +17,7 @@ export class UtilisateurComponent {
     admin: false,
   };
 
-  updatedUser: Users = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    admin: false,
-  };
+  admin: String = 'utilisateur';
 
   isEditing = false;
 
@@ -40,10 +35,21 @@ export class UtilisateurComponent {
   }
 
   onAddUser() {
-    this.usersService.addUser(this.newUser).subscribe(() => {
-      this.loadUsers();
-      this.newUser = { firstName: '', lastName: '', email: '', admin: false };
-    });
+    if (this.admin === 'utilisateur') {
+      this.newUser.admin = false;
+      this.usersService.addUser(this.newUser).subscribe(() => {
+        this.loadUsers();
+        this.newUser = { firstName: '', lastName: '', email: '', admin: false };
+        this.newUser.admin = false;
+      });
+    } else {
+      this.newUser.admin = true;
+      this.usersService.addUser(this.newUser).subscribe(() => {
+        this.loadUsers();
+        this.newUser = { firstName: '', lastName: '', email: '', admin: false };
+        this.admin = '';
+      });
+    }
   }
 
   loadUsers() {
