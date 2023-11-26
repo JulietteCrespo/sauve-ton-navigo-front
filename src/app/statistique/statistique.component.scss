@@ -1,16 +1,19 @@
-.container {
-  //background-color: #FFFFFF; /* Couleur bleue */
-  border-radius: 20px;
+body {
+  width: auto;
+  background-color: #e9eaea; /* Couleur bleue */
+  margin: 0; /* Supprimer la marge par défaut du body */
   padding-left: 40px;
   padding-right: 40px;
-  padding-bottom: 10px;
-  margin: 20px;
+  overflow-x: hidden;
 }
 
-body {
-  background-color: #e9eaea; /* Couleur bleue */
-  padding-left: 40px;
-  padding-right: 40px;
+.container {
+  background-color: #FFFFFF; /* Couleur bleue */
+  border-radius: 20px;
+  padding-left: 20px; /* Réduire la marge interne pour éviter l'espace vide à droite */
+  padding-right: 20px; /* Réduire la marge interne pour éviter l'espace vide à droite */
+  padding-bottom: 10px;
+  margin: 20px;
 }
 .centered {
   display: flex;

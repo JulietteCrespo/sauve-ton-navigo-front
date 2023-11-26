@@ -1,14 +1,27 @@
-<div class="login-container">
-  <h2>Connexion</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="emailLogin" [ngModelOptions]="{standalone: true}" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Mots de passe :</label>
-      <input type="password" id="email" name="email" [(ngModel)]="mdp" [ngModelOptions]="{standalone: true}" required>
-    </div>
-    <button type="submit">Connexion</button>
-  </form>
+<html >
+<body>
+<br>
+<div class="container " style="margin: 0px">
+  <div class="container" style="background-color: #62b2ef; text-align: center">
+    <br>
+    <h1>Connexion</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group centered">
+        <label for="email">Email :</label>
+        <input class="form-control " type="email" id="email" name="email" [(ngModel)]="emailLogin" [ngModelOptions]="{standalone: true}" required>
+      </div>
+      <br>
+      <div class="form-group centered">
+        <label for="email">Mots de passe :</label>
+        <input class="form-control" type="password" id="email" name="email" [(ngModel)]="mdp" [ngModelOptions]="{standalone: true}" required style="width: 240px;">
+      </div>
+      <br>
+      <br>
+      <button  class="btn btn-light centered" type="submit">Connexion</button>
+      <br>
+    </form>
+  </div>
+  <br>
+  <br><br><br><br><br><br><br><br><br><br>
 </div>
+</body>

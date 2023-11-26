@@ -1,0 +1,39 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.container {
+  border-radius: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  margin-left: 100%;
+  margin-top: 70px;
+  width: 500px;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.grandeDiv{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-control{
+  width: 300px;
+  margin-left: 15px;
+}
+
+body {
+  width: auto;
+  block-size: fit-content;
+  background-image: url('../../assets/images/Plan.png');
+  padding-left: 40px;
+  padding-right: 40px;
+  background-size: cover; /* Assurez-vous que l'image couvre l'intégralité du conteneur */
+  background-position: center; /* Centrez l'image horizontalement et verticalement */
+  background-repeat: no-repeat; /* Ne pas répéter l'image */
+}
+

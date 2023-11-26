@@ -5,12 +5,12 @@
     <br />
     <div class="container">
       <br />
-      <h3>Utilisateur</h3>
+      <h2>Utilisateur</h2>
       <hr />
 
-      <mat-expansion-panel style="margin-bottom: 20px">
+      <mat-expansion-panel style="margin-bottom: 20px; ">
         <mat-expansion-panel-header>
-          <mat-panel-title>
+          <mat-panel-title style = "font-size: 17px; color: #62b2ef;">
             <i
               class="fa-solid fa-plus"
               style="color: #1760de; margin-right: 6px; font-size: 1.2em"
@@ -82,16 +82,17 @@
 
             <button
               type="button"
-              class="btn btn-success btn-rounded btn-sm btnAjout"
+              class="btn btn-secondary"
               (click)="onAddUser()"
             >
               Ajouter
             </button>
           </div>
+          <br>
         </form>
       </mat-expansion-panel>
 
-      <table class="table align-middle mb-0 bg-white">
+      <table class="table align-middle table-hover">
         <thead class="bg-light">
           <tr>
             <th>ID</th>
@@ -122,13 +123,10 @@
             <td>
               <button
                 type="button"
-                class="btn btn-outline-none"
+                style = "padding: -2px"
+                class="btn btn-outline-danger"
                 (click)="onButtonDeleteClick(user.id ? user.id : 0)"
-              >
-                <i
-                  class="fa-solid fa-trash"
-                  style="color: #ff0000; font-size: 1.3em"
-                ></i>
+              >X
               </button>
             </td>
           </tr>
