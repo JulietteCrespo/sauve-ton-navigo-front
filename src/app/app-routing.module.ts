@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { UsersResolver } from './users/users.resolver';
 import {StationComponent} from "./station/station.component";
 import {DetailDeclarationComponent} from "./detail-declaration/detail-declaration.component";
+import { StatistiqueComponent } from './statistique/statistique.component';
   import {EditSignalementComponent} from "./edit-signalement/edit-signalement.component";
 
 const routes: Routes = [{ path: "", component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [{ path: "", component: HomeComponent },
   { path: "utilisateur", component: UtilisateurComponent },
   { path: 'editSignalement/:id', component: EditSignalementComponent },
   { path: 'detail/:id', component: DetailDeclarationComponent },
+  {path: 'statistique', component: StatistiqueComponent},
     {
     path: "users",
     component: UsersComponent,

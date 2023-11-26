@@ -21,6 +21,7 @@ import { PopUpComponent } from './popup/popup.component';
 import { DetailDeclarationComponent } from './detail-declaration/detail-declaration.component';
 import { EditSignalementComponent } from './edit-signalement/edit-signalement.component';
 import { LoginComponent } from './login/login.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,8 @@ import { LoginComponent } from './login/login.component';
     PopUpComponent,
     DetailDeclarationComponent,
     LoginComponent,
+    EditSignalementComponent,
+    StatistiqueComponent
   ],
   imports: [
     BrowserModule,
