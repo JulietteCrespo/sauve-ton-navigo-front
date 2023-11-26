@@ -29,7 +29,7 @@ import { PopUpComponent } from './popup/popup.component';
     DeclarerComponent,
     RechercherComponent,
     UtilisateurComponent,
-    PopUpComponent
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,8 @@ import { PopUpComponent } from './popup/popup.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatDialogModule],
+    MatDialogModule,
+  ],
   providers: [
     DatePipe,
     {

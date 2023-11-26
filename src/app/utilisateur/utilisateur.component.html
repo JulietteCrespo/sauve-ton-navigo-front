@@ -19,7 +19,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <form action="">
+        <form>
           <div class="form">
             <div>
               <label>Nom</label>
@@ -52,6 +52,7 @@
                 class="form-control"
                 style="width: 100px"
                 [(ngModel)]="newUser.email"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               />
             </div>
             <div>
