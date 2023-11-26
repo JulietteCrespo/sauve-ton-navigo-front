@@ -50,6 +50,10 @@ export class SignalementService {
     return this.http.get<Station[]>(`${this.signalementUrl}/findStatStationMois/${mois}`);
   }
 
+  findStatLigneMonth(mois : number):  Observable<number[]>{
+    return this.http.get<number[]>(`${this.signalementUrl}/findStatLgineMois/${mois}`);
+  }
+
   getAllStationAndDay(id: number,jour: String ): Observable<Signalement[]> {
     console.log(`${this.signalementUrl}/getAllStationAndDay?id=${id}&jour=${jour}`);
     return this.http.get<Signalement[]>(`${this.signalementUrl}/getAllStationAndDay?id=${id}&jour=${jour}`);

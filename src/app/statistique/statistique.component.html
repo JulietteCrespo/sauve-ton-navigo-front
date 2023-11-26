@@ -10,7 +10,7 @@
       <br>
       <h4>Station les plus contrôlé aujourd'hui :</h4>
       <hr>
-      <table class="table align-middle mb-0 bg-white">
+      <table class="table align-middle mb-0 bg-white" >
         <thead class="bg-light">
         <tr>
           <th>Ligne</th>
@@ -43,6 +43,13 @@
             </div>
           </td>
         </tr>
+        <tr >
+          <td colspan ="3">
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{msgStationDay}}</p>
+            </div>
+          </td>
+        </tr>
       </table>
     </div>
   </div>
@@ -53,7 +60,7 @@
         <br>
         <h4>Station les plus contrôlé ce mois ci :</h4>
         <hr>
-        <table class="table align-middle mb-0 bg-white">
+        <table class="table align-middle mb-0 bg-white" >
           <thead class="bg-light">
           <tr>
             <th>Ligne</th>
@@ -85,7 +92,15 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td colspan ="3">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{msgStationMonth}}</p>
+              </div>
+            </td>
+          </tr>
         </table>
+
       </div>
     </div>
     <br>
@@ -93,17 +108,38 @@
 </div>
 
 <div class="container" style="margin: 0px">
-  <div class="container" style="background-color: #FFFFFF;">
+  <div class="container" style="background-color: #FFFFFF;" *ngIf="stationMonth$; ">
     <div>
       <br>
-      <h4>Les lignes controlé sur derniers semaines :</h4>
+      <h4>Les lignes controlées ce mois ci :</h4>
       <hr>
-
+      <table >
+        <tr *ngFor="let ligne of (LigneMonth$ | async)">
+            <div class="d-flex align-items-center " style="display: flex;">
+              <img
+                [id]="'imageElement_' + ligne"
+                [src]="changerPhoto(ligne)"
+                alt="Description de l'image"
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+              >
+            </div>
+        </tr>
+        <tr>
+          <td colspan ="3">
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{msgStationMonth}}</p>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
   <br>
 </div>
 <br>
 </body>
+
+
 
 
