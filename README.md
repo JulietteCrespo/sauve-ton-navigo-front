@@ -27,7 +27,8 @@ Ci dessous, voici une liste des fonctionnalités fonctionnelles :
 
 ## Lancement du projet
 
-Utilisez la branch main
+Utilisez la branch main.
+
 Tout d'abord, vous devez suivre les indications présente sur le fichier `README.md` du backend.  
 Après avoir cloner le projet sauve-ton-navigo-front, placez vous dans le dossier `sauve-ton-navigo-front`.  
 Installer angular : npm install
