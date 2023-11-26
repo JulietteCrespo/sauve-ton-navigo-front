@@ -1,3 +1,5 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 .container {
   background-color: #ffffff; /* Couleur bleue */
   border-radius: 20px;
@@ -25,7 +27,7 @@ body {
 }
 
 .form {
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -33,4 +35,10 @@ body {
 
 .btnAjout {
   height: 3.5vh;
+}
+
+.firstColumnTable {
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
 }

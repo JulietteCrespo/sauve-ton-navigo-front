@@ -36,7 +36,7 @@ import { LoginComponent } from './login/login.component';
     EditSignalementComponent,
     PopUpComponent,
     DetailDeclarationComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatDialogModule],
+    MatDialogModule,
+  ],
   providers: [
     DatePipe,
     {

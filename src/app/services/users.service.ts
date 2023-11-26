@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable, catchError, tap} from 'rxjs';
+import { Observable, catchError, tap } from 'rxjs';
 import { Users } from '../models/users.model';
 
 @Injectable({
@@ -39,7 +39,6 @@ export class UsersService {
   }
 
   addUser(newUser: Users): Observable<any> {
-    console.log(newUser);
     return this.http.post<any>(`${this.usersUrl}`, newUser);
   }
 
@@ -47,9 +46,11 @@ export class UsersService {
     return this.http.get<Users>(`${this.usersUrl}/email/${email}`);
   }
 
-  connexion(email:string, mdp:string): Observable<Users> {
-
+  connexion(email: string, mdp: string): Observable<Users> {
     return this.http.get<Users>(`${this.usersUrl}/connexion/${email}/${mdp}`);
   }
 
+  updateUser(user: Users, id: number) {
+    return this.http.put<any>(`${this.usersUrl}/${id}`, user);
+  }
 }
