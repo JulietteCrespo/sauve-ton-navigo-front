@@ -62,7 +62,7 @@
       <th>Contrôleur</th>
       <th>Humeur</th>
       <th>Date</th>
-      <th>Actions</th>
+      <th *ngIf="authService.isAdmin">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -92,7 +92,7 @@
         <p class="fw-bold mb-1">{{signalement.date}}</p>
         <p class="text-muted mb-0">{{signalement.heure}}</p>
       </div></td>
-      <td>
+      <td *ngIf="authService.isAdmin">
         <button type="button" class="btn btn-outline-secondary btn-rounded" (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)">
           Edit
         </button>

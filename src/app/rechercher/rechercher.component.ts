@@ -7,6 +7,7 @@ import {Signalement} from "../models/signalement.model";
 import {SignalementService} from "../services/signalement.service";
 import {DatePipe} from "@angular/common";
 import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-rechercher',
@@ -28,7 +29,7 @@ export class RechercherComponent {
 
   id: number;
 
-  constructor(private router: Router, private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe){
+  constructor(private router: Router, private stationService: StationService, private signalementService1: SignalementService, private datePipe: DatePipe,public authService: AuthService){
     this.signalementService = signalementService1;
     this.signalement$ = this.signalementService.findAll();
     this.id =1;
