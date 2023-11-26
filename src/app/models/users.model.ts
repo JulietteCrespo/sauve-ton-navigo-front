@@ -4,5 +4,5 @@ export interface Users {
   lastName: string;
   email: string;
   admin: boolean;
-  isEditing?: boolean;
+  mdp: string;
 }

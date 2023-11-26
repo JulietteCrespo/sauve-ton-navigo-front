@@ -67,6 +67,17 @@
                 <option value="administrateur">Administrateur</option>
               </select>
             </div>
+            <div>
+              <label>Mot de passe</label>
+              <input
+                type="text"
+                id="mdp"
+                name="mdp"
+                class="form-control"
+                style="width: 100px"
+                [(ngModel)]="newUser.mdp"
+              />
+            </div>
 
             <button
               type="button"
