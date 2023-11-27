@@ -10,7 +10,7 @@
 <div class="container">
   <!-- Content here -->
   <br>
-  <h3>Déclarer un controle</h3>
+  <h2>Édit le signalement</h2>
   <hr>
   <div>
     <!-- Form -->
@@ -29,11 +29,11 @@
               autocomplete="off"
               (change)="onButtonFiendStationClick(numeroLigne)"
             />
-            <label class="btn btn-secondary" [for]="'ligne' + numeroLigne">
+            <label class="btn btn-light" [for]="'ligne' + numeroLigne">
               <img
                 [src]="changerPhoto(numeroLigne)"
                 [alt]="'Image ' + numeroLigne"
-                style="width: 18px; height: 18px;"
+                style="width: 18px; height: 18px;margin: -5px;"
               >
             </label>
           </ng-container>
@@ -104,8 +104,9 @@
       </div>
       <!-- Button ajoutez -->
     </form>
-    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="add" style="width: 100px" (click)="envoyerSignalement()">Ajouter
+    <button type="submit" class="btn btn-secondary centered" id="add" style="width: 100px" (click)="envoyerSignalement()">Valider
     </button>
+    <br>
     <!-- From -->
   </div>
 </div>

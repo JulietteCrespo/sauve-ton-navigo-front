@@ -6,15 +6,15 @@
 <br>
 <div class="container">
   <br>
-  <h4>Rechercher</h4>
+  <h2>Rechercher</h2>
   <hr>
   <form >
     <br>
     <div class="grandeDiv centered">
       <!-- Ligne input -->
-      <label>Ligne :</label>
       <br>
       <div class="btn-group centered">
+        <label style="margin-right: 30px">Ligne :</label>
         <ng-container *ngFor="let numeroLigne of lignesArray">
           <input
             type="radio"
@@ -24,7 +24,7 @@
             autocomplete="off"
             (change)="onButtonFiendStationClick(numeroLigne)"
           />
-          <label class="btn btn-secondary" [for]="'ligne' + numeroLigne">
+          <label class="btn btn-light" [for]="'ligne' + numeroLigne">
             <img
               [src]="changerPhoto(numeroLigne)"
               [alt]="'Image ' + numeroLigne"
@@ -49,13 +49,14 @@
     </div>
     <br>
       <div class="form-group centered">
-        <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="addUser" (click)="onButtonFiendAllStationAndDay()" style="width: 70px;margin-top: 22px;">OK
+        <button type="submit" class="btn btn-secondary centered" id="addUser" (click)="onButtonFiendAllStationAndDay()" >OK
         </button>
       </div>
     </div>
   </form>
   <br>
-  <table class="table align-middle mb-0 bg-white">
+  <br>
+  <table class="table align-middle table-hover">
     <thead class="bg-light">
     <tr>
       <th>Ligne</th>
@@ -93,15 +94,16 @@
         <p class="text-muted mb-0">{{signalement.heure}}</p>
       </div></td>
       <td *ngIf="authService.isAdmin">
-        <button type="button" class="btn btn-outline-secondary btn-rounded" (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)">
+        <button style="margin-right: 10px" type="button" class="btn btn-outline-secondary btn-rounded" (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)">
           Edit
         </button>
         <button type="button" class="btn btn-outline-danger btn-rounded " (click)="onButtonDeleteClick(signalement.id ? toNumber(signalement.id) : 0)">
-          Supr
+          X
         </button>
       </td>
     </tr>
   </table>
+  <br>
 </div>
 <br>
 </body>

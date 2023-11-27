@@ -27,7 +27,7 @@ export class StatistiqueComponent {
       tap(stations => {
         const station = stations[0];
         if (station ==  undefined) {
-          this.msgStationDay ="pas de signalements aujourd'hui";
+          this.msgStationDay ="Pas de signalements aujourd'hui";
           console.log(this.msgStationDay);
         }
       }))
@@ -36,7 +36,7 @@ export class StatistiqueComponent {
       tap(stations => {
         const station = stations[0];
         if (station ==  undefined) {
-          this.msgStationMonth ="pas de signalements ce mois ci";
+          this.msgStationMonth ="Pas de signalements ce mois ci";
           console.log(this.msgStationMonth);
         }
       }))

@@ -8,9 +8,13 @@
   <div class="container" style="background-color: #FFFFFF;">
     <div>
       <br>
-      <h4>Contrôle en cours</h4>
-      <hr>
-      <table class="table align-middle mb-0 bg-white" >
+      <div style="display: flex;">
+      <h2 style = "margin-right: 280px">Contrôle en cours</h2>
+      <button  type="submit" class="btn btn-primary btn-block mb-4 " id="declarer" (click)="pageClick()" style="width: 120px">+ Ajoutez
+      </button>
+      </div>
+        <hr>
+      <table class="table align-middle table-hover" >
         <thead class="bg-light">
         <tr>
           <th>Ligne</th>
@@ -40,28 +44,20 @@
             <p class="text-muted mb-0">{{signalement.heure}}</p>
           </div></td>
           <td *ngIf="authService.isAdmin">
-            <button type="button"  class="btn btn-outline-secondary btn-rounded " (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)" >
+            <button style="margin-right: 10px" type="button"  class="btn btn-outline-secondary btn-rounded " (click)="onButtonEditClick(signalement.id ? toNumber(signalement.id) : 0)" >
               Edit
             </button>
             <button type="button" class="btn btn-outline-danger btn-rounded " (click)="onButtonDeleteClick(signalement.id ? toNumber(signalement.id) : 0)">
-              Supr
+              X
             </button>
           </td>
         </tr>
-      </table>
+      </table><br>
 
     </div>
   </div>
   <div class="container" style="margin: 0px">
-    <div class="container" style="background-color: #62b2ef; text-align: center">
-      <br>
-      <h4 style="text-align: center">Déclarer la présence de contrôleurs</h4>
-      <br>
-    <button type="submit" class="btn btn-primary btn-block mb-4 centered" id="declarer" (click)="pageClick()" style="width: 120px">+ Ajoutez
-    </button>
-    </div>
-    <br>
-    <img src="../../assets/images/navigo.png " alt="Description de l'image">
+    <img style="margin-top: 230px" src="../../assets/images/navigo.png " alt="Description de l'image">
   </div>
 </div>
 
